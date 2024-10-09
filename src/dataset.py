@@ -100,11 +100,11 @@ class ARDataset(Dataset):
         # masks normalization
         mask[mask >= 128] = 255; mask[mask < 128] = 0
         # normalization for shadow-generation module
-        image1, mask1 = image.astype(np.float) / 127.5 - 1.0, \
-        								mask.astype(np.float) / 127.5 - 1.0
+        image1, mask1 = image.astype(float) / 127.5 - 1.0, \
+        								mask.astype(float) / 127.5 - 1.0
         # normalization for attention module
-        image, mask = image.astype(np.float) / 255.0, \
-        							mask.astype(np.float) / 255.0
+        image, mask = image.astype(float) / 255.0, \
+        							mask.astype(float) / 255.0
 
         # apply preprocessing
         if self.preprocessing:
